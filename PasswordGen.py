@@ -1,17 +1,27 @@
 import random
+run = True
+ALPHABET = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] 
+def randomChar():
+    return ALPHABET[random.randint(0,25)]
+    
 def Password_Gen():
-    ALPHABET = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"] 
+    
     length = 3
     randomWord =""
     while length < 4:
-        length = int(input("How long would you like the password to be? "))
+        length = int(input("How long would you like the password to be? (Must be over 4): "))
         
     
     randomNum = str(random.randint(100,999))
-    for character in range (length-3,random.randint(4,10)):
-        randomWord += str(ALPHABET[random.randint(1,26)])
+    for character in range (length-3):
+        randomWord += randomChar()
         
     randomWord += randomNum
-    print(randomWord)
+    print(randomWord)       
         
-Password_GEN()
+while run == True:
+    Password_Gen()
+    q = input("Run Again? (y/n): ")
+    if (q == "n"):
+        run = False
+    
